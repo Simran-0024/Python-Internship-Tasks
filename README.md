@@ -103,6 +103,50 @@ This program is an interactive number guessing game where the computer randomly 
 
 **Example Gameplay Flow**
 
+-------
+-------
+
+
+## **ToDo List CLI App — Documentation**
+
+### **Overview**
+
+The Work List Manager is an interactive console-based application that allows users to maintain a personal task list. It provides options to add tasks, remove tasks, view the current list, and exit the application.
+
+---
+
+### **Features**
+
+1. **Add Task (`a`)**
+
+   * Prompts the user to enter a task.
+   * Adds the entered task to the work list.
+   * Displays a confirmation message after adding.
+
+2. **Remove Task (`b`)**
+
+   * Prompts the user to enter the task they want to remove.
+   * Checks if the task exists in the list before removing.
+   * Displays a success message if removed, or an error message if not found.
+
+3. **View Work List (`v`)**
+
+   * Displays all the current tasks in the list in their current order.
+   * If the list is empty, a message stating "Your work list is empty" is shown.
+
+4. **Exit Application (`e`)**
+
+   * Ends the program and displays a goodbye message.
+
+---
+
+### **Program Flow**
+
+* The program runs in a continuous loop until the user chooses to exit.
+* At each iteration, the user is prompted to select an action.
+* The work list is updated in real time based on user actions.
+* If the work list is empty, the program immediately notifies the user.
+
 1. The player chooses 5 chances.
 2. The computer picks a random number.
 3. The player starts guessing, receiving hints after each attempt.
