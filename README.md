@@ -102,6 +102,10 @@ This program is an interactive number guessing game where the computer randomly 
 * Feedback after each guess to guide the player.
 
 **Example Gameplay Flow**
+1. The player chooses 5 chances.
+2. The computer picks a random number.
+3. The player starts guessing, receiving hints after each attempt.
+4. The game ends when the player guesses correctly, runs out of chances, or types `"exit"`.
 
 -------
 -------
@@ -147,7 +151,4 @@ The Work List Manager is an interactive console-based application that allows us
 * The work list is updated in real time based on user actions.
 * If the work list is empty, the program immediately notifies the user.
 
-1. The player chooses 5 chances.
-2. The computer picks a random number.
-3. The player starts guessing, receiving hints after each attempt.
-4. The game ends when the player guesses correctly, runs out of chances, or types `"exit"`.
+
