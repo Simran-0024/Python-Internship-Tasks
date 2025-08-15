@@ -102,6 +102,10 @@ This program is an interactive number guessing game where the computer randomly 
 * Feedback after each guess to guide the player.
 
 **Example Gameplay Flow**
+1. The player chooses 5 chances.
+2. The computer picks a random number.
+3. The player starts guessing, receiving hints after each attempt.
+4. The game ends when the player guesses correctly, runs out of chances, or types `"exit"`.
 
 -------
 -------
@@ -147,7 +151,67 @@ The Work List Manager is an interactive console-based application that allows us
 * The work list is updated in real time based on user actions.
 * If the work list is empty, the program immediately notifies the user.
 
-1. The player chooses 5 chances.
-2. The computer picks a random number.
-3. The player starts guessing, receiving hints after each attempt.
-4. The game ends when the player guesses correctly, runs out of chances, or types `"exit"`.
+-------
+-------
+
+## **Number System Converter — Documentation**
+
+### **Overview**
+
+The *Number System Converter* is a Python-based, menu-driven application that allows users to convert numbers between **Binary, Octal, Decimal, and Hexadecimal** formats. It provides a simple interactive interface where the user selects the type of conversion, inputs a value, and receives the converted result instantly.
+
+---
+
+### **Objective**
+
+To create a simple and user-friendly tool for converting numbers between different number systems using Python’s built-in functions.
+
+---
+
+### **Tools Used**
+
+* **Python 3.x** — for program logic and built-in conversion functions
+* **VS Code / Jupyter Notebook** — for writing and running the code
+* **Basic knowledge of number systems** — to understand conversions between Binary, Octal, Decimal, and Hexadecimal
+
+---
+
+### **Features**
+
+* Menu-driven interface for easy navigation
+* Supports the following conversions:
+
+  1. Decimal → Binary
+  2. Binary → Decimal
+  3. Decimal → Octal
+  4. Octal → Decimal
+  5. Decimal → Hexadecimal
+  6. Hexadecimal → Decimal
+* Repeats until the user chooses to exit
+* Uses Python’s built-in functions like `bin()`, `oct()`, `hex()`, and `int()` for accurate conversions
+
+---
+
+### **How It Works**
+
+1. **Menu Display**
+   The program displays a list of conversion options (1–6) and an exit option (7).
+
+2. **User Input**
+   The user selects the desired conversion type by entering a number from the menu.
+
+3. **Number Entry**
+   Based on the selected option, the user is prompted to enter a number in the corresponding number system.
+
+4. **Conversion Process**
+
+   * For decimal to other systems, Python’s `bin()`, `oct()`, and `hex()` functions are used.
+   * For other systems to decimal, the `int(number, base)` function is used, where the base is **2** for binary, **8** for octal, and **16** for hexadecimal.
+
+5. **Output**
+   The converted number is displayed in the appropriate format (without prefixes like `0b`, `0o`, or `0x`).
+
+6. **Repeat or Exit**
+   After each conversion, the menu appears again, allowing the user to perform multiple conversions until they choose to exit.
+
+---
