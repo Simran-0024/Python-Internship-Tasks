@@ -215,3 +215,216 @@ To create a simple and user-friendly tool for converting numbers between differe
    After each conversion, the menu appears again, allowing the user to perform multiple conversions until they choose to exit.
 
 ---
+----
+# Contact Book — Documentation
+
+This program is a simple **command-line Contact Management System** that allows users to **store, view, search, and delete contacts**. Contacts are saved in a CSV file so that the data remains persistent even after the program is closed.
+
+---
+
+## **Features**
+
+1. **Add Contact**
+
+   * Users can enter a contact's **Name**, **Phone number**, and **Email address**.
+   * The details are appended to the `contacts.csv` file for future use.
+   * If the file does not exist initially, the program automatically creates it with proper headers.
+
+2. **View Contacts**
+
+   * Displays all the saved contacts from the CSV file.
+   * Each row contains the **Name, Phone, and Email**.
+   * The program skips the header and shows only actual contacts.
+
+3. **Search Contact**
+
+   * Lets users search for a contact by entering a **name**.
+   * The search is **case-insensitive** (e.g., "John" and "john" are treated the same).
+   * If found, the program prints the full contact details.
+   * If not found, it notifies the user.
+
+4. **Delete Contact**
+
+   * Allows users to delete a contact by entering a **name**.
+   * The program rewrites the file excluding the contact to be deleted.
+   * If the contact is not present, no changes are made.
+   * Displays a message confirming deletion (if existed).
+
+5. **Exit Option**
+
+   * Users can exit the program anytime by choosing the exit option.
+
+---
+
+## **File Handling**
+
+* The program uses a file named **`contacts.csv`** to store contacts.
+* At startup, it checks if the file exists:
+
+  * If not, it creates the file and adds a header row (`Name, Phone, Email`).
+* All future read/write operations are performed on this file.
+
+---
+
+## **User Interaction**
+
+* The program runs in a continuous **menu-driven loop**, presenting options:
+
+  1. Add Contact
+  2. View Contacts
+  3. Search Contact
+  4. Delete Contact
+  5. Exit
+
+* The user selects an option by entering a number (1–5).
+
+* If an invalid choice is entered, the program notifies the user and asks again.
+
+---
+---
+
+# Student Management System — Documentation
+
+This program is a **menu-driven student management system** that allows users to manage student records. It uses **Object-Oriented Programming (OOP)** concepts in Python and provides options to **add, view, search, update, and delete students**.
+
+---
+
+## **Core Concept**
+
+* The program is built around a **`Student` class**, which holds:
+
+  * **Name** of the student
+  * **Roll Number** (unique identifier)
+  * **Course** enrolled in
+  * **Marks** (default is `0`)
+
+* The class provides methods for:
+
+  * Displaying student details
+  * Adding/updating marks
+  * Calculating grade based on marks
+
+---
+
+## **Features**
+
+### 1. **Add Student**
+
+* User enters the **Name, Roll Number, and Course**.
+* A new `Student` object is created and added to the list of students.
+* Confirmation message is displayed.
+
+---
+
+### 2. **View All Students**
+
+* Displays the details of all stored students.
+* If no students are found, the program notifies the user.
+* Information displayed includes:
+
+  * Name
+  * Roll Number
+  * Course
+  * Marks
+
+---
+
+### 3. **Search Student by Roll Number**
+
+* User enters a roll number.
+* If a student with that roll number exists:
+
+  * Displays student details
+  * Calculates and shows the **grade**:
+
+    * Marks ≥ 90 → Grade A
+    * Marks ≥ 75 → Grade B
+    * Marks ≥ 50 → Grade C
+    * Marks < 50 → Grade F
+* If not found, displays "Student not found."
+
+---
+
+### 4. **Update Marks**
+
+* User enters a roll number to identify the student.
+* If found, user can enter new marks.
+* Marks are updated and confirmation is shown.
+* If not found, the program notifies the user.
+
+---
+
+### 5. **Delete Student**
+
+* User enters a roll number to delete a student.
+* If found, the student is removed from the list.
+* Displays a confirmation message.
+* If not found, shows "Student not found."
+
+---
+
+### 6. **Exit**
+
+* Ends the program with a goodbye message.
+
+---
+
+## **User Interaction**
+
+* The program continuously shows a **menu of options** until the user chooses to exit.
+
+* Options:
+
+  1. Add Student
+  2. View All Students
+  3. Search Student by Roll No
+  4. Update Marks
+  5. Delete Student
+  6. Exit
+
+* Input is taken from the user, and the corresponding operation is executed.
+
+* Invalid choices are handled gracefully with a message asking the user to try again.
+
+---
+---
+
+# Weather Application — Documentation
+
+This program is a **command-line weather application** that fetches and displays real-time weather information for any city using the **OpenWeatherMap API**.
+
+---
+
+## **Features**
+
+1. **Fetch Weather Data**
+
+   * Retrieves weather details (temperature, humidity, and description) for a user-specified city.
+   * Data is shown in **Celsius** for user convenience.
+
+2. **Error Handling**
+
+   * **Invalid API Key** → Alerts the user.
+   * **City not found** → Notifies if the entered city does not exist.
+   * **No Internet** → Handles connection errors gracefully.
+   * Any other errors display the status code.
+
+3. **Loop & Exit Option**
+
+   * Runs continuously, asking for city names.
+   * User can type `"exit"` anytime to quit the program.
+
+---
+
+## **User Interaction**
+
+* The program asks: *"Enter city name"*
+* On valid input, it displays:
+
+  * 🌡 **Temperature (°C)**
+  * 💧 **Humidity (%)**
+  * ☁️ **Condition (weather description)**
+* Example: *Weather in London → 18°C, 65% humidity, cloudy*
+
+---
+----
