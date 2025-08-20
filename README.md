@@ -421,10 +421,104 @@ This program is a **command-line weather application** that fetches and displays
 * The program asks: *"Enter city name"*
 * On valid input, it displays:
 
-  * 🌡 **Temperature (°C)**
-  * 💧 **Humidity (%)**
-  * ☁️ **Condition (weather description)**
+  * **Temperature (°C)**
+  * **Humidity (%)**
+  * **Condition (weather description)**
 * Example: *Weather in London → 18°C, 65% humidity, cloudy*
 
 ---
 ----
+# Documentation: Student Marks Processing with CSV
+
+## **Objective**
+
+The project demonstrates how to process student academic records stored in a CSV file using Python. It calculates totals and percentages, identifies top performers, flags weak students for a re-test, and stores the results in a new CSV file.
+
+---
+
+## **Input File (students.csv)**
+
+The CSV file contains the following columns:
+
+* **Name** – Student’s name
+* **Roll Number** – Unique student identifier
+* **Subject1–Subject5** – Marks in 5 subjects
+
+### Example Data:
+
+| Name   | Roll Number | Subject1 | Subject2 | Subject3 | Subject4 | Subject5 |
+| ------ | ----------- | -------- | -------- | -------- | -------- | -------- |
+| Aarav  | 101         | 78       | 85       | 69       | 90       | 82       |
+| Priya  | 103         | 90       | 88       | 95       | 92       | 85       |
+| Aniket | 104         | 35       | 40       | 28       | 50       | 45       |
+| Mehak  | 105         | 60       | 65       | 58       | 62       | 64       |
+
+---
+
+## **Steps Performed**
+
+1. **Reading Data**
+
+   * The program reads the `students.csv` file and extracts student details.
+   * It converts marks into integers for calculations.
+
+2. **Calculations**
+
+   * **Total Marks** are computed by summing scores from all 5 subjects.
+   * **Percentage** is calculated as:
+
+     $$
+     \text{Percentage} = \frac{\text{Total Marks}}{5}
+     $$
+
+3. **Top Performers**
+
+   * Students are ranked by percentage.
+   * The **top 3 students** are displayed on the screen.
+
+4. **Re-Test Identification**
+
+   * Any student with a **percentage below 40%** is flagged for a re-test.
+
+5. **Output File Creation**
+
+   * A new file `results.csv` is generated.
+   * It contains: **Name, Roll Number, Total, Percentage, and Result (Pass/Fail)**.
+
+---
+
+## **Expected Results**
+
+### **On Screen Output**
+
+* **Top 3 Performers:**
+
+  1. Priya – 90%
+  2. Aarav – 80.8%
+  3. Mehak – 61.8%
+
+* **Re-Test Candidates (<40%):**
+
+  * Aniket – 39.6%
+
+* Confirmation message for `results.csv` creation.
+
+---
+
+### **Output File (results.csv)**
+
+| Name   | Roll Number | Total | Percentage | Result |
+| ------ | ----------- | ----- | ---------- | ------ |
+| Aarav  | 101         | 404   | 80.80      | Pass   |
+| Priya  | 103         | 450   | 90.00      | Pass   |
+| Aniket | 104         | 198   | 39.60      | Fail   |
+| Mehak  | 105         | 309   | 61.80      | Pass   |
+
+---
+
+## **Error Handling**
+
+* **File Not Found:** Displays an error if `students.csv` is missing.
+* **Invalid Data:** Skips a record if marks are not valid numbers.
+
+---
