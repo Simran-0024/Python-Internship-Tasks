@@ -522,3 +522,112 @@ The CSV file contains the following columns:
 * **Invalid Data:** Skips a record if marks are not valid numbers.
 
 ---
+---
+
+## **Student Database Management System — Documentation**
+
+### **Overview**
+
+This Python program implements a simple **Student Database** using SQLite. It allows users to store, view, search, update, and delete student records directly from the console. The program demonstrates the use of **CRUD operations** (Create, Read, Update, Delete) in a real-world scenario.
+
+---
+
+### **Workflow**
+
+1. **Database Connection**
+
+   * The program connects to an SQLite database file named `students.db`.
+   * If the file does not exist, it is created automatically.
+
+2. **Table Creation**
+
+   * A table named `students` is created (if it doesn’t already exist).
+   * Fields include:
+
+     * **id** (unique identifier, auto-incremented)
+     * **name** (student’s name)
+     * **roll\_no** (unique roll number)
+     * **department** (student’s department)
+     * **marks** (integer marks)
+
+3. **Functionalities**
+
+   * **Insert Student**: Adds a new student record to the database.
+   * **Display All Students**: Shows all stored student records.
+   * **Search Student**: Retrieves a student’s details using their roll number.
+   * **Update Marks**: Updates the marks of an existing student.
+   * **Delete Student**: Removes a student record from the database.
+
+4. **User Menu**
+
+   * The program runs in a loop, presenting a simple text menu:
+
+     1. Insert a new student
+     2. Display all students
+     3. Search by roll number
+     4. Update marks
+     5. Delete student record
+     6. Exit program
+
+   * The user selects an option, provides input, and the corresponding function is executed.
+
+5. **Exit**
+
+   * Choosing the exit option cleanly terminates the program.
+
+---
+
+### **Error Handling**
+
+* Duplicate roll numbers are not allowed (enforced by the `UNIQUE` constraint).
+* If an invalid menu option is chosen, the program displays a warning and asks again.
+
+---
+---
+
+## **Weather Information Fetcher — Documentation**
+
+### **Overview**
+
+This Python program fetches live weather data for a given city using the **OpenWeatherMap API**. It demonstrates how to connect to a public REST API, send HTTP requests, parse JSON responses, and display useful information in a user-friendly format.
+
+---
+
+### **Workflow**
+
+1. **Setup**
+
+   * The program defines the base URL for the OpenWeatherMap API.
+   * A personal **API key** is included to authenticate requests.
+
+2. **User Input**
+
+   * The program asks the user to enter the name of a city (e.g., *Delhi*, *London*).
+
+3. **Sending the API Request**
+
+   * Using the `requests` library, the program constructs a GET request with:
+
+     * City name
+     * API key
+     * Unit system (`metric` for Celsius temperatures)
+
+4. **Processing the Response**
+
+   * If the request is successful (status code `200`), the JSON response is parsed.
+   * The program extracts:
+
+     * **City name**
+     * **Temperature** (in °C)
+     * **Weather condition description** (e.g., “Clear Sky”)
+     * **Humidity percentage**
+
+5. **Output**
+
+   * The information is neatly displayed in the console as a simple weather report.
+
+6. **Error Handling**
+
+   * If the API call fails (e.g., wrong city name, invalid API key, or network issue), the program prints an error message instead of crashing.
+
+---
