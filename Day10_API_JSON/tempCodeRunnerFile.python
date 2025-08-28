@@ -1,0 +1,84 @@
+import requests
+
+API_KEY = "1f374b415b6b59fed64a665edb76e13f"
+BASE_URL = "http://api.openweathermap.org/data/2.5/weather"
+
+
+def get_weather(city):
+    try:
+        # Build URL
+        url = f"{BASE_URL}?q={city}&appid={API_KEY}&units=metric"
+        
+        # Send GET request
+        response = requests.get(url)
+        
+        # Check status
+        if response.status_code == 200:
+            data = response.json()  # Convert response to Python dict
+            
+            # Extract info
+            city_name = data["name"]
+            temp = data["main"]["temp"]
+            desc = data["weather"][0]["description"].title()
+            humidity = data["main"]["humidity"]
+            
+            # Display
+            print("\n--- Weather Report ---")
+            print(f"City: {city_name}")
+            print(f"Temperature: {temp}°C")
+            print(f"Condition: {desc}")
+            print(f"Humidity: {humidity}%")
+        
+        else:
+            print("⚠️ Error:", response.status_code, response.text)
+    
+    except requests.exceptions.RequestException as e:
+        print("⚠️ Network error:", e)
+
+
+# ---------- Main ----------
+if __name__ == "__main__":
+    city = input("Enter city name: ")
+    get_weather(city)
+import requests
+
+# ---------- Setup ----------
+API_KEY = "your_api_key_here"   # Get a free one from https://openweathermap.org/
+BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
+
+def get_weather(city):
+    try:
+        # Build URL
+        url = f"{BASE_URL}?q={city}&appid={API_KEY}&units=metric"
+        
+        # Send GET request
+        response = requests.get(url)
+        
+        # Check status
+        if response.status_code == 200:
+            data = response.json()  # Convert response to Python dict
+            
+            # Extract info
+            city_name = data["name"]
+            temp = data["main"]["temp"]
+            desc = data["weather"][0]["description"].title()
+            humidity = data["main"]["humidity"]
+            
+            # Display
+            print("\n--- Weather Report ---")
+            print(f"City: {city_name}")
+            print(f"Temperature: {temp}°C")
+            print(f"Condition: {desc}")
+            print(f"Humidity: {humidity}%")
+        
+        else:
+            print("⚠️ Error:", response.status_code, response.text)
+    
+    except requests.exceptions.RequestException as e:
+        print("⚠️ Network error:", e)
+
+
+# ---------- Main ----------
+if __name__ == "__main__":
+    city = input("Enter city name: ")
+    get_weather(city)

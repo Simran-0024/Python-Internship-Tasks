@@ -1,0 +1,85 @@
+import sqlite3
+
+# Connect to database (creates students.db if not exists)
+conn = sqlite3.connect("students.db")
+cursor = conn.cursor()
+
+# Create table
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS students (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    roll_no TEXT UNIQUE,
+    department TEXT,
+    marks INTEGER
+)
+""")
+conn.commit()
+
+# Insert student
+def insert_student(name, roll_no, department, marks):
+    try:
+        cursor.execute("INSERT INTO students (name, roll_no, department, marks) VALUES (?, ?, ?, ?)",
+                       (name, roll_no, department, marks))
+        conn.commit()
+        print("Student added!")
+    except Exception as e:
+        print("Error:", e)
+
+# Display all
+def display_students():
+    cursor.execute("SELECT * FROM students")
+    for row in cursor.fetchall():
+        print(row)
+
+# Search by roll_no
+def search_student(roll_no):
+    cursor.execute("SELECT * FROM students WHERE roll_no = ?", (roll_no,))
+    print(cursor.fetchone())
+
+# Update marks
+def update_marks(roll_no, new_marks):
+    cursor.execute("UPDATE students SET marks = ? WHERE roll_no = ?", (new_marks, roll_no))
+    conn.commit()
+    print("Marks updated!")
+
+# Delete student
+def delete_student(roll_no):
+    cursor.execute("DELETE FROM students WHERE roll_no = ?", (roll_no,))
+    conn.commit()
+    print("Student deleted!")
+
+# Menu
+while True:
+    print("\n1. Insert  2. Display  3. Search  4. Update  5. Delete  6. Exit")
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+        n = input("Name: ")
+        r = input("Roll No: ")
+        d = input("Department: ")
+        m = int(input("Marks: "))
+        insert_student(n, r, d, m)
+
+    elif choice == "2":
+        display_students()
+
+    elif choice == "3":
+        r = input("Roll No: ")
+        search_student(r)
+
+    elif choice == "4":
+        r = input("Roll No: ")
+        m = int(input("New Marks: "))
+        update_marks(r, m)
+
+    elif choice == "5":
+        r = input("Roll No: ")
+        delete_student(r)
+
+    elif choice == "6":
+        print("Goodbye!")
+        break
+
+    else:
+        print("Invalid choice, try again.")
